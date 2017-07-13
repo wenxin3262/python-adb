@@ -187,7 +187,8 @@ class AdbMessage(object):
     if isinstance(data, bytearray):
         total = sum(data)
     elif isinstance(data, bytes):
-        total = sum(map(ord, data.decode('ascii')))
+        # total = sum(map(ord, data.decode('ascii')))
+        total = sum(map(ord, data))
     else:
         total = sum(map(ord, data))
     return total & 0xFFFFFFFF
